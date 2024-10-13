@@ -1,0 +1,40 @@
+#table {
+    table-layout: fixed;
+    width: 70%;
+    border: 3px solid #000000;
+    border-collapse: collapse;
+
+}
+
+th,
+td {
+    padding: 20px;
+    text-align: center;
+    border: 3px solid #000000;
+}
+
+th {
+    font-size: 30px;
+}
+
+td {
+    font-size: 28px;
+}
+
+#add {
+    padding: 16px 40px;
+    background-color: rgb(255, 48, 48);
+    color: white;
+    border: none;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+#form-table {
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+#form-table>tr>td {
+    border-color: white;
+}
