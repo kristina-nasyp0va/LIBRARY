@@ -40,26 +40,8 @@ for (let book of myLibrary) {
     table.appendChild(tr);
 }
 
-const save = document.querySelector(".save");
-const dialog = document.querySelector("#form");
 
+const formAddBook = document.forms.formAddBook;
+const nameField = formAddBook.NameBook
 
-console.log(dialog)
-
-let input1 = document.getElementById("input1");
-let input2 = document.getElementById("input2");
-let input3 = document.getElementById("input3");
-
-
-// "Close" button closes the dialog
-save.addEventListener("click", () => {
-    console.log(24939857)
-    myLibrary.push({
-
-        name: input1.value,
-        surname: input2.value,
-        quantity: input3.value,
-    })
-    dialog.close();
-});
-
+console.log(form)

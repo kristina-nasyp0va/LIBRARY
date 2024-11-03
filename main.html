@@ -24,16 +24,11 @@
     </table>
     <script src="index.js"></script>
 
-    <button id="add" type="button" onclick="window.form.showModal()">
-        НОВАЯ КНИГА
-    </button>
-
-
-    <dialog id="form">
+    <form name="formAddBook">
         <table id="form-table">
             <tr>
                 <td><label for="text">Название</label></td>
-                <td><input type="text" required id="input1"></td>
+                <td><input name="NameBook" type="text" required id="input1"></td>
             </tr>
             <tr>
                 <td><label for="text">Автор</label></td>
@@ -54,12 +49,28 @@
             </tr>
         </table>
 
-        <button type="button" onclick="window.form.close()">
+        <button type="button">
             Закрыть
         </button>
-        <button type="button" class="save">
+        <button type="submit" id="save">
             Добавить
         </button>
-    </dialog>
+    </form>
+
+    <form name="my">
+        <input name="one" value="1">
+        <input name="two" value="2">
+    </form>
+
+    <script>
+        // получаем форму
+        let form = document.forms.my; // <form name="my"> element
+
+        // получаем элемент
+        let elem = form.elements.one; // <input name="one"> element
+
+        alert(elem.value); // 1
+    </script>
+
 
 </body>
