@@ -1,4 +1,4 @@
-#table {
+.BooksCollection {
     table-layout: fixed;
     width: 70%;
     border: 3px solid #000000;
@@ -21,7 +21,7 @@ td {
     font-size: 28px;
 }
 
-#add {
+.add {
     padding: 16px 40px;
     background-color: rgb(255, 48, 48);
     color: white;
@@ -30,11 +30,11 @@ td {
     border-radius: 8px;
 }
 
-#form-table {
+.form-table {
     border: 1px solid white;
     border-collapse: collapse;
 }
 
-#form-table>tr>td {
+.form-table>tr>td {
     border-color: white;
 }
