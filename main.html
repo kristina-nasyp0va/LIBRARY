@@ -10,7 +10,7 @@
 
 <body>
 
-    <table class="BooksCollection">
+    <table class="library-table">
         <thead>
             <tr>
                 <th>Название</th>
@@ -24,35 +24,35 @@
     </table>
 
 
-    <form class="formAddBook">
-        <table class="form-table">
+    <form class="new-book-form">
+        <table class="new-book-table">
             <tr>
                 <td><label for="text">Название</label></td>
-                <td><input name="NameBook" type="text" required class="Input1"></td>
+                <td><input name="new-book-form__name" type="text" required class="new-book-form__name"></td>
             </tr>
             <tr>
                 <td><label for="text">Автор</label></td>
-                <td><input type="text" required name="Autor" class="Input2"></td>
+                <td><input type="text" required name="new-book-form__autor" class="new-book-form__autor"></td>
             </tr>
             <tr>
                 <td><label for="text">Кол-во символов</label></td>
-                <td><input type="text" required name="CountSymbol" class="Input3"></td>
+                <td><input type="text" required name="new-book-form__quantity" class="new-book-form__quantity"></td>
             </tr>
             <tr>
-                <td><label for="status">Статус</label></td>
-                <td><select name="status" class="status">
-                        <option value="Не начато">Не начато</option>
-                        <option value="В процессе">В процессе</option>
-                        <option value="Прочитано">Прочитано</option>
+                <td><label for="new-book-form__status">Статус</label></td>
+                <td><select name="status-select" class="status-select">
+                        <option value="status-select__not-started">Не начато</option>
+                        <option value="status-select__in-progress">В процессе</option>
+                        <option value="status-select__read">Прочитано</option>
                     </select>
                 </td>
             </tr>
         </table>
 
-        <button type="button">
+        <button type="new-book-form__button_close">
             Закрыть
         </button>
-        <button type="submit" class="Save">
+        <button type="submit" class="new-book-form__button_submit">
             Добавить
         </button>
     </form>
