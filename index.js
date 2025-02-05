@@ -1,19 +1,25 @@
 const myLibrary = [
     {
-        name: 2,
-        autor: 3,
-        quantity: 3,
-        status: "status-select__not-started"
+        name: "Мартин Иден",
+        autor: "Джек Лондон",
+        quantity: 605,
+        status: "status-select__read",
+        id: "id9684350275072326"
     },
     {
-        name: 2,
-        autor: 3,
-        quantity: 2,
-        status: "status-select__not-started"
+        name: "Гарри Поттер и методы рационального мышления",
+        autor: "Элиезер Юдковский",
+        quantity: 1200,
+        status: "status-select__not-started",
+        id: "id9684350275033333"
     }];
 
-
-
+function createOption(text, value) {
+    const option = document.createElement("option");
+    option.text = text;
+    option.value = value;
+    return option
+}
 
 let table = document.querySelector(".library-table");
 
@@ -44,15 +50,23 @@ function initialRender(library) {
         const Option3 = createOption("Прочитано", "Прочитано")
         select.appendChild(Option3)
 
+        if (element["status"] == "status-select__not-started") {
+            Option1.setAttribute("selected", "")
+        } else if (element["status"] == "status-select__in-progress") {
+            Option2.setAttribute("selected", "")
+        } else if (element["status"] == "status-select__read") {
+            Option3.setAttribute("selected", "")
+        }
 
         td4.appendChild(select)
         tr.appendChild(td4);
 
         let td5 = document.createElement("td");
-        const buttonDelete = document.createElement("button")
-        buttonDelete.classList.add("button__delete")
-        buttonDelete.textContent = "Удалить"
-        td5.appendChild(buttonDelete)
+        const button__delete = document.createElement("button")
+        button__delete.textContent = "Удалить"
+        button__delete.setAttribute("id", element.id)
+        button__delete.setAttribute("class", "delete")
+        td5.appendChild(button__delete)
         tr.appendChild(td5);
 
         table.appendChild(tr);
@@ -61,12 +75,22 @@ function initialRender(library) {
 
 initialRender(myLibrary)
 
-function createOption(text, value) {
-    const option = document.createElement("option");
-    option.text = text;
-    option.value = value;
-    return option
-}
+const deleteButtons = document.querySelectorAll(".delete");
+
+// Добавляем обработчик события для каждой кнопки
+deleteButtons.forEach(button => {
+    button.addEventListener("click", function () {
+        const tdParent = this.parentElement;
+        const trParent = this.tdParent;
+        // Получаем ID книги из атрибута data-id
+        const bookId = this.getAttribute("id");
+        myLibrary = myLibrary.filter(book => book.id != bookId);
+        // Удаляем элемент списка из DOM
+        tdParent.remove();
+        trParent.remove();
+
+    });
+});
 
 const form = document.querySelector(".new-book-form");
 
@@ -82,7 +106,7 @@ form.addEventListener("submit", function (event) {
     const inputQuantity = document.querySelector(".new-book-form__quantity");
     const valueQuantity = inputQuantity.value;
 
-    const select = document.querySelector(".status-select"); // выбираем элемент select
+    const select = document.querySelector(".status-select__add"); // выбираем элемент select
     const valueSelect = select.value
     console.log(valueSelect)
 
@@ -90,18 +114,14 @@ form.addEventListener("submit", function (event) {
         name: valueName,
         autor: valueAutor,
         quantity: valueQuantity,
-        status: valueSelect
+        status: valueSelect,
+        id: "id" + Math.random().toString(10).slice(2)
     }
 
     myLibrary.push(newBook)
     console.log(form)
     render(newBook)
 })
-
-//form.addEventListener("click", function (event) {
-
-//}
-
 
 function render(book) {
 
@@ -133,7 +153,7 @@ function render(book) {
         Option1.setAttribute("selected", "")
     } else if (book["status"] == "status-select__in-progress") {
         Option2.setAttribute("selected", "")
-    } else {
+    } else if (book["status"] == "status-select__read") {
         Option3.setAttribute("selected", "")
     }
 
@@ -141,22 +161,14 @@ function render(book) {
     tr.appendChild(td4);
 
     let td5 = document.createElement("td");
-    const buttonDelete = document.createElement("button")
-    buttonDelete.classList.add("button__delete")
-    buttonDelete.textContent = "Удалить"
-    td5.appendChild(buttonDelete)
+    const button__delete = document.createElement("button")
+    button__delete.textContent = "Удалить"
+    button__delete.setAttribute("id", book.id)
+    button__delete.setAttribute("class", "delete")
+    td5.appendChild(button__delete)
     tr.appendChild(td5);
 
     table.appendChild(tr);
 
 }
 
-
-buttonDelete.addEventListener("click", function (event) {
-    event.preventDefault()
-
-
-})
-
-
-//setAttribute(name, value)

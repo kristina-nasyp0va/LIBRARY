@@ -14,23 +14,25 @@ td {
 }
 
 th {
-    font-size: 30px;
-}
-
-td {
     font-size: 28px;
 }
 
-.form-table {
-    border: 1px solid white;
-    border-collapse: collapse;
+td {
+    font-size: 24px;
 }
 
-.form-table>tr>td {
+.new-book-table {
+    border: 1px solid white;
+    border-collapse: collapse;
+    margin: 10px;
+    margin-left: 0px;
+}
+
+.new-book-table>tr>td {
     border-color: white;
 }
 
-.status-select {
+select {
     position: relative;
     width: 90px;
     height: 31px;
@@ -39,7 +41,7 @@ td {
     border-radius: 4px;
 }
 
-.status-select:hover {
+select:hover {
     border: 2px solid #c50000;
     color: black;
 }
